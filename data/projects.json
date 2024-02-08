@@ -1,0 +1,26 @@
+[
+    {
+        "id": 0,
+        "status": "completed",
+        "date": "2015-01-01",
+        "views": 0,
+        "title": "Project 1",
+        "content": "This is the first project."
+    },
+    {
+        "id": 1,
+        "status": "completed",
+        "date": "2016-01-01",
+        "views": 1,
+        "title": "Project 2",
+        "content": "This is the second project."
+    },
+    {
+        "id": 2,
+        "status": "completed",
+        "date": "2017-01-01",
+        "views": 2,
+        "title": "Project 3",
+        "content": "This is the third project."
+    }
+]

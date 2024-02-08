@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "position": "CEO",
+        "content": "This is a testimonial from John Doe."
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "position": "CTO",
+        "content": "This is a testimonial from Jane Smith."
+    },
+    {
+        "id": 3,
+        "name": "Bob Johnson",
+        "position": "CFO",
+        "content": "This is a testimonial from Bob Johnson."
+    }
+]
