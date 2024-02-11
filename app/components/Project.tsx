@@ -16,16 +16,13 @@ export default function Project({
   content,
 }: ProjectProps) {
   return (
-    <div className="flex flex-col gap-2 border border-gray-600 rounded-md p-2">
+    <div className="flex flex-col gap-2 border border-gray-600 rounded-md p-2 transition-transform duration-150 hover:-translate-y-1 hover:scale-105">
       <div className="flex justify-between">
-        <p>{date}</p>
-        <div className="flex gap-4">
-          <p>{status}</p>
-          <p>{views}</p>
-        </div>
+        <p className="text-xs font-light">{date}</p>
+        <p className="text-xs font-light">{views}</p>
       </div>
       <h2>{title}</h2>
-      <h3>{content}</h3>
+      <h3 className="font-light text-sm">{content}</h3>
     </div>
   );
 }

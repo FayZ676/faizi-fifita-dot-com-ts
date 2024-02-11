@@ -10,8 +10,7 @@ import BlogEntry from "./components/BlogEntry";
 import projects from "../data/projects.json";
 import blog from "../data/blog.json";
 import facts from "../data/facts.json";
-import testimonials from "../data/testimonials.json";
-import Testimonial from "./components/Testimonial";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
@@ -22,47 +21,35 @@ export default function Home() {
         links={{ blog: true, projects: true, contact: true }}
         socials={{ github: true, linkedin: true }}
       />
-      {/* Hero */}
-      <div className="flex flex-col gap-4">
-        <h1 className="text-2xl">
-          Hey there,
-          <br />
-          I&apos;m glad you&apos;re here 🥳
-        </h1>
-        <FunFacts facts={facts} />
-      </div>
-      <div className="border-b"></div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-xl">Testimonials 👏🏻</h2>
-        <div className="flex flex-col gap-4 mx-4">
-          {testimonials.map((testimonial) => (
-            <Testimonial
-              name={testimonial.name}
-              content={testimonial.content}
-              position={testimonial.position}
-              key={testimonial.id}
-            />
-          ))}
+      <div className="flex flex-col gap-4 sm:items-center sm:flex-row sm:justify-between">
+        <div className="flex flex-col gap-2 sm:w-1/2">
+          <h1 className="text-2xl">
+            Hey there,
+            <br />
+            I&apos;m glad you&apos;re here 🥳
+          </h1>
+          <h3>
+            I&apos;m Faizi, a full-stack developer from Oregon focussed on
+            building beautiful software that make life easier.
+          </h3>
         </div>
+        <FunFacts facts={facts} />
       </div>
       <div className="border-b"></div>
       <div className="flex flex-col gap-4">
         <div className="flex justify-between">
           <h2 className="text-xl">Projects 🪜</h2>
-          <button className="bg-gray-800 rounded-md hover:bg-gray-700 py-1 px-3 font-light">
-            See all
-          </button>
+          <Button text="See more" />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row">
           {projects.map((project) => (
-            <Link href={`/projects/${project.id}`}>
+            <Link href={`/projects/${project.id}`} key={project.title}>
               <Project
                 date={project.date}
                 status={project.status}
                 content={project.content}
                 title={project.title}
                 views={project.views}
-                key={project.title}
               />
             </Link>
           ))}
@@ -77,19 +64,16 @@ export default function Home() {
       <div className="flex flex-col gap-4">
         <div className="flex justify-between items-center">
           <h2 className="text-xl">Blog 🗞️</h2>
-          <button className="bg-gray-800 rounded-md hover:bg-gray-700 py-1 px-3 font-light">
-            See all
-          </button>
+          <Button text="See more" />
         </div>
         <div className="flex flex-col gap-4">
           {blog.map((blogEntry) => (
-            <Link href={`/blog/${blogEntry.id}`}>
+            <Link href={`/blog/${blogEntry.id}`} key={blogEntry.id}>
               <BlogEntry
                 date={blogEntry.date}
                 views={blogEntry.views}
                 title={blogEntry.title}
                 content={blogEntry.content}
-                key={blogEntry.id}
               />
             </Link>
           ))}
@@ -97,8 +81,9 @@ export default function Home() {
       </div>
       <div className="border-b"></div>
       <div className="flex flex-col gap-4">
-        {" "}
-        <h2 className="text-xl">Send me a message 👋</h2>
+        <h2 className="text-xl">
+          Send me a message <span className="">👋</span>
+        </h2>
         <ContactForm />
       </div>
     </main>

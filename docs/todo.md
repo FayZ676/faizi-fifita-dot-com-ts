@@ -6,6 +6,7 @@
 - Boost the user experience by including subtle, yet meaningful animations.
 - Maintain a consistent theme throughout the application by defining and using standard colors/fonts/sizes/spacings.
 - From each heading, image, color scheme, etc, imbue each page with character.
+- Build mobile-first
 
 ## Features
 

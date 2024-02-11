@@ -12,7 +12,7 @@ export default function Testimonial({
   content,
 }: TestimonialProps) {
   return (
-    <div className="flex flex-col bg-gray-800 rounded-md p-2">
+    <div className="flex flex-col bg-gray-800 rounded-md p-4">
       <p className="text-sm">"{content}"</p>
       <div className="text-xs font-light">
         <p>{name}</p>

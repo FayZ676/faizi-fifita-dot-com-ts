@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} max-w-2xl mx-auto mt-4 mb-4`}>
+      <body className={`${roboto.className} max-w-4xl mx-auto mt-4 mb-4`}>
         {children}
         <footer className="m-8">
           <p className="text-right text-xs font-light">Built by Faizi Fifita</p>
