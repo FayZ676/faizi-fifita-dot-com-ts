@@ -6,6 +6,7 @@ interface ProjectProps {
   views: number;
   title: string;
   content: string;
+  displayOption: string;
 }
 
 export default function Project({
@@ -14,15 +15,32 @@ export default function Project({
   views,
   title,
   content,
+  displayOption,
 }: ProjectProps) {
   return (
-    <div className="flex flex-col gap-2 border border-gray-600 rounded-md p-2 transition-transform duration-150 hover:-translate-y-1 hover:scale-105">
+    <div
+      className={`flex flex-col gap-2 border border-gray-600 rounded-md p-2 transition-transform duration-150 hover:scale-101 ${
+        displayOption === "primary" ? "p-4 sm:h-full" : ""
+      }`}
+    >
       <div className="flex justify-between">
         <p className="text-xs font-light">{date}</p>
         <p className="text-xs font-light">{views}</p>
       </div>
-      <h2>{title}</h2>
-      <h3 className="font-light text-sm">{content}</h3>
+      <h2
+        className={`text-lg ${
+          displayOption === "primary" ? "sm:text-2xl" : ""
+        }`}
+      >
+        {title}
+      </h2>
+      <h3
+        className={`font-light text-sm ${
+          displayOption === "primary" ? "sm:text-base" : ""
+        }`}
+      >
+        {content}
+      </h3>
     </div>
   );
 }

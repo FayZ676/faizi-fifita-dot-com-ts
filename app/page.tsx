@@ -41,18 +41,29 @@ export default function Home() {
           <h2 className="text-xl">Projects 🪜</h2>
           <Button text="See more" />
         </div>
-        <div className="flex flex-col gap-4 sm:flex-row">
-          {projects.map((project) => (
-            <Link href={`/projects/${project.id}`} key={project.title}>
-              <Project
-                date={project.date}
-                status={project.status}
-                content={project.content}
-                title={project.title}
-                views={project.views}
-              />
-            </Link>
-          ))}
+        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-2">
+          {projects
+            .filter((project) => project.displayOption !== "none")
+            .map((project) => (
+              <Link
+                href={`/projects/${project.id}`}
+                key={project.title}
+                className={
+                  project.displayOption === "primary"
+                    ? "sm:col-start-1 sm:row-start-1 sm:row-end-3"
+                    : ""
+                }
+              >
+                <Project
+                  date={project.date}
+                  status={project.status}
+                  content={project.content}
+                  title={project.title}
+                  views={project.views}
+                  displayOption={project.displayOption}
+                />
+              </Link>
+            ))}
         </div>
       </div>
       <div className="border-b"></div>

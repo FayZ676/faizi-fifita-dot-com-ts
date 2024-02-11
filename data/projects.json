@@ -5,7 +5,8 @@
         "date": "2015-01-01",
         "views": 0,
         "title": "Project 1",
-        "content": "This is the first project. It was a great success."
+        "content": "This is the first project. It was a great success. It was a challenging task. It was a team effort. It is currently in progress.",
+        "displayOption": "none"
     },
     {
         "id": 1,
@@ -13,7 +14,8 @@
         "date": "2016-01-01",
         "views": 1,
         "title": "Project 2",
-        "content": "This is the second project. It was a challenging task."
+        "content": "This is the second project. It was a great success. It was a challenging task. It was a team effort. It is currently in progress.",
+        "displayOption": "secondary"
     },
     {
         "id": 2,
@@ -21,6 +23,16 @@
         "date": "2017-01-01",
         "views": 2,
         "title": "Project 3",
-        "content": "This is the third project. It was a team effort."
+        "content": "This is the third project. It was a great success. It was a challenging task. It was a team effort. It is currently in progress.",
+        "displayOption": "secondary"
+    },
+    {
+        "id": 3,
+        "status": "in progress",
+        "date": "2018-01-01",
+        "views": 3,
+        "title": "Project 4",
+        "content": "This is the fourth project. It was a great success. It was a challenging task. It was a team effort. It is currently in progress.",
+        "displayOption": "primary"
     }
 ]
