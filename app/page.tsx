@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { promises as fs } from "fs";
 
 import Project from "./components/Project";
 import Tools from "./components/Tools";
@@ -7,18 +8,20 @@ import FunFacts from "./components/FunFacts";
 import Navbar from "./components/Navbar";
 import BlogEntry from "./components/BlogEntry";
 
-import projects from "../data/projects.json";
 import blog from "../data/blog.json";
 import facts from "../data/facts.json";
 import Button from "./components/Button";
+import { getAllMDXFrontmatter } from "./utils";
 
-export default function Home() {
+export default async function Home() {
+  const frontmatters = await getAllMDXFrontmatter();
+
   return (
     <main className="flex flex-col gap-8 mr-4 ml-4">
       <Navbar
         profileImage={"/profile.jpg"}
         name={"Faizi Fifita"}
-        links={{ blog: true, projects: true, contact: true }}
+        links={{ blog: true, work: true, contact: true }}
         socials={{ github: true, linkedin: true }}
       />
       <div className="flex flex-col gap-4 sm:items-center sm:flex-row sm:justify-between">
@@ -38,29 +41,29 @@ export default function Home() {
       <div className="border-b"></div>
       <div className="flex flex-col gap-4">
         <div className="flex justify-between">
-          <h2 className="text-xl">Projects 🪜</h2>
-          <Button text="See more" />
+          <h2 className="text-xl">Work 🪜</h2>
+          <Link href={"/work"}>
+            <Button text="See more" />
+          </Link>
         </div>
         <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:grid-rows-2">
-          {projects
-            .filter((project) => project.displayOption !== "none")
-            .map((project) => (
+          {frontmatters
+            .filter((frontmatter) => frontmatter.displayOption !== "none")
+            .map((frontmatter) => (
               <Link
-                href={`/projects/${project.id}`}
-                key={project.title}
+                href={`/work/${frontmatter.slug}`}
+                key={frontmatter.id}
                 className={
-                  project.displayOption === "primary"
+                  frontmatter.displayOption === "primary"
                     ? "sm:col-start-1 sm:row-start-1 sm:row-end-3"
                     : ""
                 }
               >
                 <Project
-                  date={project.date}
-                  status={project.status}
-                  content={project.content}
-                  title={project.title}
-                  views={project.views}
-                  displayOption={project.displayOption}
+                  views={12}
+                  title={frontmatter.title}
+                  description={frontmatter.description}
+                  displayOption={frontmatter.displayOption}
                 />
               </Link>
             ))}

@@ -1,20 +1,16 @@
 import React from "react";
 
 interface ProjectProps {
-  date: string;
-  status: string;
   views: number;
   title: string;
-  content: string;
+  description: string;
   displayOption: string;
 }
 
 export default function Project({
-  date,
-  status,
   views,
   title,
-  content,
+  description,
   displayOption,
 }: ProjectProps) {
   return (
@@ -24,22 +20,23 @@ export default function Project({
       }`}
     >
       <div className="flex justify-between">
-        <p className="text-xs font-light">{date}</p>
-        <p className="text-xs font-light">{views}</p>
+        <h2
+          className={`text-lg ${
+            displayOption === "primary" ? "sm:text-2xl" : ""
+          }`}
+        >
+          {title}
+        </h2>
+        <div className="text-xs font-light bg-gray-800 rounded-sm p-1 my-auto">
+          {views} views
+        </div>
       </div>
-      <h2
-        className={`text-lg ${
-          displayOption === "primary" ? "sm:text-2xl" : ""
-        }`}
-      >
-        {title}
-      </h2>
       <h3
         className={`font-light text-sm ${
           displayOption === "primary" ? "sm:text-base" : ""
         }`}
       >
-        {content}
+        {description}
       </h3>
     </div>
   );

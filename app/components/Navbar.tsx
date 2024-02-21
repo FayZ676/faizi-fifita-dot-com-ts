@@ -14,7 +14,7 @@ interface NavbarProps {
   name?: string | null;
   links?: {
     blog?: boolean;
-    projects?: boolean;
+    work?: boolean;
     contact?: boolean;
     home?: boolean;
   } | null;
@@ -77,13 +77,13 @@ export default function Navbar({
                 </Link>
               </li>
             )}
-            {links?.projects && (
+            {links?.work && (
               <li>
                 <Link
-                  href={"/projects"}
+                  href={"/work"}
                   className="text-gray-400 border border-transparent rounded-md px-2 py-1 transition-colors duration-400 hover:border-gray-600 hover:text-white"
                 >
-                  Projects
+                  Work
                 </Link>
               </li>
             )}

@@ -11,7 +11,7 @@ export default function Blog() {
       <Navbar
         profileImage={"/profile.jpg"}
         name={"Faizi Fifita"}
-        links={{ home: true, projects: true, contact: true }}
+        links={{ home: true, work: true, contact: true }}
         socials={{ github: true }}
       />
       <div className="flex flex-col gap-4">
